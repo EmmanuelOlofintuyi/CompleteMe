@@ -1,0 +1,12 @@
+C:\GitProjects\Repos\CompleteMe\src\Domain\obj\Debug\net8.0\CompleteMe.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\GitProjects\Repos\CompleteMe\src\Domain\obj\Debug\net8.0\CompleteMe.Domain.AssemblyInfoInputs.cache
+C:\GitProjects\Repos\CompleteMe\src\Domain\obj\Debug\net8.0\CompleteMe.Domain.AssemblyInfo.cs
+C:\GitProjects\Repos\CompleteMe\src\Domain\obj\Debug\net8.0\CompleteMe.Domain.csproj.CoreCompileInputs.cache
+C:\GitProjects\Repos\CompleteMe\src\Domain\obj\Debug\net8.0\CompleteMe.Domain.sourcelink.json
+C:\GitProjects\Repos\CompleteMe\src\Domain\bin\Debug\net8.0\CompleteMe.Domain.deps.json
+C:\GitProjects\Repos\CompleteMe\src\Domain\bin\Debug\net8.0\CompleteMe.Domain.dll
+C:\GitProjects\Repos\CompleteMe\src\Domain\bin\Debug\net8.0\CompleteMe.Domain.pdb
+C:\GitProjects\Repos\CompleteMe\src\Domain\obj\Debug\net8.0\CompleteMe.Domain.dll
+C:\GitProjects\Repos\CompleteMe\src\Domain\obj\Debug\net8.0\refint\CompleteMe.Domain.dll
+C:\GitProjects\Repos\CompleteMe\src\Domain\obj\Debug\net8.0\CompleteMe.Domain.pdb
+C:\GitProjects\Repos\CompleteMe\src\Domain\obj\Debug\net8.0\ref\CompleteMe.Domain.dll
