@@ -4,9 +4,11 @@ using Xunit;
 
 namespace CompleteMe.Domain.Tests;
 
+// Tests the rules and behavior currently represented by the Goal entity.
 public class GoalTests
 {
     [Fact]
+    // A goal is allowed to exist without being assigned to a project.
     public void Goal_ShouldAllowStandaloneGoalWithoutProject()
     {
         var goal = new Goal
@@ -23,6 +25,7 @@ public class GoalTests
     }
 
     [Fact]
+    // A goal should preserve the status and dates supplied by the caller.
     public void Goal_ShouldKeepStatusAndDateValues()
     {
         var startDate = new DateTime(2026, 9, 13);

@@ -3,9 +3,11 @@ using Xunit;
 
 namespace CompleteMe.Domain.Tests;
 
+// Tests the basic metadata stored by a Project.
 public class ProjectTests
 {
     [Fact]
+    // A project should retain its category and lifecycle status.
     public void Project_ShouldStoreCategoryAndStatusMetadata()
     {
         var projectId = Guid.NewGuid();
