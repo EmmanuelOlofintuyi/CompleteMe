@@ -1,0 +1,12 @@
+C:\GitProjects\Repos\CompleteMe\src\Domain\bin\ValidationBuild\CompleteMe.Domain.deps.json
+C:\GitProjects\Repos\CompleteMe\src\Domain\bin\ValidationBuild\CompleteMe.Domain.dll
+C:\GitProjects\Repos\CompleteMe\src\Domain\bin\ValidationBuild\CompleteMe.Domain.pdb
+C:\GitProjects\Repos\CompleteMe\src\Domain\obj\ValidationBuild\CompleteMe.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\GitProjects\Repos\CompleteMe\src\Domain\obj\ValidationBuild\CompleteMe.Domain.AssemblyInfoInputs.cache
+C:\GitProjects\Repos\CompleteMe\src\Domain\obj\ValidationBuild\CompleteMe.Domain.AssemblyInfo.cs
+C:\GitProjects\Repos\CompleteMe\src\Domain\obj\ValidationBuild\CompleteMe.Domain.csproj.CoreCompileInputs.cache
+C:\GitProjects\Repos\CompleteMe\src\Domain\obj\ValidationBuild\CompleteMe.Domain.sourcelink.json
+C:\GitProjects\Repos\CompleteMe\src\Domain\obj\ValidationBuild\CompleteMe.Domain.dll
+C:\GitProjects\Repos\CompleteMe\src\Domain\obj\ValidationBuild\refint\CompleteMe.Domain.dll
+C:\GitProjects\Repos\CompleteMe\src\Domain\obj\ValidationBuild\CompleteMe.Domain.pdb
+C:\GitProjects\Repos\CompleteMe\src\Domain\obj\ValidationBuild\ref\CompleteMe.Domain.dll

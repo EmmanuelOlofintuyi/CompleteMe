@@ -1,0 +1,6 @@
+{
+  "CompleteMe.Api, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\GitProjects\\Repos\\CompleteMe\\src\\Api",
+  "CompleteMe.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\GitProjects\\Repos\\CompleteMe\\src\\Application",
+  "CompleteMe.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\GitProjects\\Repos\\CompleteMe\\src\\Domain",
+  "CompleteMe.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\GitProjects\\Repos\\CompleteMe\\src\\Infrastructure"
+}

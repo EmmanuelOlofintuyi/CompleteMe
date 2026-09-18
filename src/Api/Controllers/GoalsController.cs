@@ -63,6 +63,27 @@ public class GoalsController : ControllerBase
         return Ok(goal);
     }
 
+    [HttpPost("{id}/complete")]
+    public async Task<ActionResult<GoalResponse>> Complete(
+        [FromRoute] Guid id)
+    {
+        try
+        {
+            var goal = await _goalService.CompleteAsync(id);
+
+            if (goal is null)
+            {
+                return NotFound();
+            }
+
+            return Ok(goal);
+        }
+        catch (InvalidOperationException exception)
+        {
+            return Conflict(new { message = exception.Message });
+        }
+    }
+
     [HttpDelete("{id}")]
     public async Task<ActionResult> Delete([FromRoute] Guid id)
     {

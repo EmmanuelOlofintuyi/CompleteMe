@@ -8,10 +8,14 @@ namespace CompleteMe.Application.Services;
 public class GoalService
 {
     private readonly IGoalRepository _goalRepository;
+    private readonly ITaskItemRepository _taskRepository;
 
-    public GoalService(IGoalRepository goalRepository)
+    public GoalService(
+        IGoalRepository goalRepository,
+        ITaskItemRepository taskRepository)
     {
         _goalRepository = goalRepository;
+        _taskRepository = taskRepository;
     }
 
     public async Task<List<GoalResponse>> GetAllAsync()
@@ -59,30 +63,61 @@ public class GoalService
         return ToResponse(goal);
     }
 
-    public async Task<GoalResponse?> UpdateAsync(
-        Guid id,
-        UpdateGoalRequest request)
-    {
-        var goal = await _goalRepository.GetByIdAsync(id);
+public async Task<GoalResponse?> UpdateAsync(Guid id, UpdateGoalRequest request)
+{
+    var goal = await _goalRepository.GetByIdAsync(id);
 
-        if (goal is null)
+    if (goal is null)
+    {
+        return null;
+    }
+
+    if (request.Name is not null)
+    {
+        if (string.IsNullOrWhiteSpace(request.Name))
         {
-            return null;
+            throw new ArgumentException("A goal name is required.", nameof(request.Name));
         }
 
         goal.Name = request.Name;
-        goal.Description = request.Description;
-        goal.StartDate = request.StartDate;
-        goal.DueDate = request.DueDate;
-        goal.ProjectId = request.ProjectId;
-        goal.CategoryId = request.CategoryId;
-        goal.RecurrenceRuleId = request.RecurrenceRuleId;
-        goal.UpdatedAtUtc = DateTime.UtcNow;
-
-        await _goalRepository.UpdateAsync(goal);
-
-        return ToResponse(goal);
     }
+
+    if (request.Description is not null)
+    {
+        goal.Description = request.Description;
+    }
+
+    if (request.StartDate.HasValue)
+    {
+        goal.StartDate = request.StartDate.Value;
+    }
+
+    if (request.DueDate.HasValue)
+    {
+        goal.DueDate = request.DueDate.Value;
+    }
+
+    if (request.ProjectId.HasValue)
+    {
+        goal.ProjectId = request.ProjectId.Value;
+    }
+
+    if (request.CategoryId.HasValue)
+    {
+        goal.CategoryId = request.CategoryId.Value;
+    }
+
+    if (request.RecurrenceRuleId.HasValue)
+    {
+        goal.RecurrenceRuleId = request.RecurrenceRuleId.Value;
+    }
+
+    goal.UpdatedAtUtc = DateTime.UtcNow;
+
+    await _goalRepository.UpdateAsync(goal);
+
+    return ToResponse(goal);
+}
 
     public Task DeleteAsync(Guid id)
     {
@@ -105,5 +140,33 @@ public class GoalService
             CategoryId = goal.CategoryId,
             RecurrenceRuleId = goal.RecurrenceRuleId
         };
+    }
+
+    public async Task<GoalResponse?> CompleteAsync(Guid id)
+    {
+        var goal = await _goalRepository.GetByIdAsync(id);
+
+        if (goal is null)
+        {
+            return null;
+        }
+
+        var tasks = await _taskRepository.GetByGoalIdAsync(id);
+
+        var hasIncompleteTasks = tasks.Any(task =>
+            task.Status != TaskItemStatus.Completed);
+
+        if (hasIncompleteTasks)
+        {
+            throw new InvalidOperationException(
+                "A goal cannot be completed while it has incomplete tasks.");
+        }
+
+        goal.Status = GoalStatus.Completed;
+        goal.UpdatedAtUtc = DateTime.UtcNow;
+
+        await _goalRepository.UpdateAsync(goal);
+
+        return ToResponse(goal);
     }
 }

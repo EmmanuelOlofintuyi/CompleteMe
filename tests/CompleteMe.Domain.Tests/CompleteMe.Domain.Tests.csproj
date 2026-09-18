@@ -22,5 +22,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\Domain\CompleteMe.Domain.csproj" />
+    <ProjectReference Include="..\..\src\Application\CompleteMe.Application.csproj" />
+    <ProjectReference Include="..\..\src\Infrastructure\CompleteMe.Infrastructure.csproj" />
   </ItemGroup>
 </Project>

@@ -1,5 +1,5 @@
 using CompleteMe.Application.Services;
-using CompleteMe.Domain.Entities;
+using CompleteMe.Application.DTO.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CompleteMe.Api.Controllers;
@@ -17,13 +17,13 @@ public class TaskController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<List<TaskItem>> GetAllAsync()
+    public async Task<ActionResult<List<TaskResponse>>> GetAllAsync()
     {
         return await _taskService.GetAllAsync();
     }
 
     [HttpGet("{id}")]
-    public async Task<ActionResult<TaskItem>> GetByIdAsync(Guid id)
+    public async Task<ActionResult<TaskResponse>> GetById(Guid id)
     {
         var task = await _taskService.GetByIdAsync(id);
         if (task == null)
@@ -34,36 +34,40 @@ public class TaskController : ControllerBase
     }
 
     [HttpGet("goal/{goalId}")]
-    public async Task<ActionResult<List<TaskItem>>> GetByGoalIdAsync(Guid goalId)
+    public async Task<ActionResult<List<TaskResponse>>> GetByGoalIdAsync(Guid goalId)
     {
         var tasks = await _taskService.GetByGoalIdAsync(goalId);
         return Ok(tasks);
     }
 
     [HttpGet("parent/{parentTaskId}")]
-    public async Task<ActionResult<List<TaskItem>>> GetByParentTaskIdAsync(Guid parentTaskId)
+    public async Task<ActionResult<List<TaskResponse>>> GetByParentTaskIdAsync(Guid parentTaskId)
     {
         var tasks = await _taskService.GetByParentTaskIdAsync(parentTaskId);
         return Ok(tasks);
     }
 
     [HttpPost]
-    public async Task<ActionResult> CreateAsync([FromBody] TaskItem taskItem)
+    public async Task<ActionResult<TaskResponse>> CreateAsync(
+        [FromBody] CreateTaskRequest request)
     {
-        await _taskService.CreateAsync(taskItem);
-        return CreatedAtAction(nameof(GetByIdAsync), new { id = taskItem.Id }, taskItem);
+        var task = await _taskService.CreateAsync(request);
+        return CreatedAtAction(nameof(GetById), new { id = task.Id }, task);
     }
 
     [HttpPut("{id}")]
-    public async Task<ActionResult> UpdateAsync([FromRoute] Guid id, [FromBody] TaskItem taskItem)
+    public async Task<ActionResult<TaskResponse>> UpdateAsync(
+        [FromRoute] Guid id,
+        [FromBody] UpdateTaskRequest request)
     {
-        if (id != taskItem.Id)
+        var task = await _taskService.UpdateAsync(id, request);
+
+        if (task is null)
         {
-            return BadRequest();
+            return NotFound();
         }
 
-        await _taskService.UpdateAsync(taskItem);
-        return NoContent();
+        return Ok(task);
     }
 
     [HttpDelete("{id}")]

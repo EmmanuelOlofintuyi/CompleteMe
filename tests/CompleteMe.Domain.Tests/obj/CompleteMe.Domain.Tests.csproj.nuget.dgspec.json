@@ -4,6 +4,71 @@
     "C:\\GitProjects\\Repos\\CompleteMe\\tests\\CompleteMe.Domain.Tests\\CompleteMe.Domain.Tests.csproj": {}
   },
   "projects": {
+    "C:\\GitProjects\\Repos\\CompleteMe\\src\\Application\\CompleteMe.Application.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\GitProjects\\Repos\\CompleteMe\\src\\Application\\CompleteMe.Application.csproj",
+        "projectName": "CompleteMe.Application",
+        "projectPath": "C:\\GitProjects\\Repos\\CompleteMe\\src\\Application\\CompleteMe.Application.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "C:\\GitProjects\\Repos\\CompleteMe\\src\\Application\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "C:\\GitProjects\\Repos\\CompleteMe\\src\\Domain\\CompleteMe.Domain.csproj": {
+                "projectPath": "C:\\GitProjects\\Repos\\CompleteMe\\src\\Domain\\CompleteMe.Domain.csproj"
+              },
+              "C:\\GitProjects\\Repos\\CompleteMe\\src\\Infrastructure\\CompleteMe.Infrastructure.csproj": {
+                "projectPath": "C:\\GitProjects\\Repos\\CompleteMe\\src\\Infrastructure\\CompleteMe.Infrastructure.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.425/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
     "C:\\GitProjects\\Repos\\CompleteMe\\src\\Domain\\CompleteMe.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -62,6 +127,80 @@
         }
       }
     },
+    "C:\\GitProjects\\Repos\\CompleteMe\\src\\Infrastructure\\CompleteMe.Infrastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\GitProjects\\Repos\\CompleteMe\\src\\Infrastructure\\CompleteMe.Infrastructure.csproj",
+        "projectName": "CompleteMe.Infrastructure",
+        "projectPath": "C:\\GitProjects\\Repos\\CompleteMe\\src\\Infrastructure\\CompleteMe.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "C:\\GitProjects\\Repos\\CompleteMe\\src\\Infrastructure\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "C:\\GitProjects\\Repos\\CompleteMe\\src\\Domain\\CompleteMe.Domain.csproj": {
+                "projectPath": "C:\\GitProjects\\Repos\\CompleteMe\\src\\Domain\\CompleteMe.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.18, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[8.0.18, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.425/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
     "C:\\GitProjects\\Repos\\CompleteMe\\tests\\CompleteMe.Domain.Tests\\CompleteMe.Domain.Tests.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -84,8 +223,14 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
+              "C:\\GitProjects\\Repos\\CompleteMe\\src\\Application\\CompleteMe.Application.csproj": {
+                "projectPath": "C:\\GitProjects\\Repos\\CompleteMe\\src\\Application\\CompleteMe.Application.csproj"
+              },
               "C:\\GitProjects\\Repos\\CompleteMe\\src\\Domain\\CompleteMe.Domain.csproj": {
                 "projectPath": "C:\\GitProjects\\Repos\\CompleteMe\\src\\Domain\\CompleteMe.Domain.csproj"
+              },
+              "C:\\GitProjects\\Repos\\CompleteMe\\src\\Infrastructure\\CompleteMe.Infrastructure.csproj": {
+                "projectPath": "C:\\GitProjects\\Repos\\CompleteMe\\src\\Infrastructure\\CompleteMe.Infrastructure.csproj"
               }
             }
           }
